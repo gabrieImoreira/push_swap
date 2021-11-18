@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_stack.c                                     :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gantonio <gantonio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/17 21:30:07 by gantonio          #+#    #+#             */
-/*   Updated: 2021/11/17 21:53:20 by gantonio         ###   ########.fr       */
+/*   Created: 2021/05/18 19:03:07 by gantonio          #+#    #+#             */
+/*   Updated: 2021/05/31 19:44:18 by gantonio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	create_stack(t_stack *stack_a, t_stack *stack_b, int argc, char *argv[])
+size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
-	int		i;
-	int		c;
-	char	**str;
-	
+	size_t	i;
+
 	i = 0;
-	i = 0;
-	if (argc != 2)
-		stack_a->number = malloc((argc - 1) * sizeof(int));
-	else
+	if (!dest || !src)
+		return (0);
+	if (size != 0)
 	{
-		str = ft_split(argv[1], ' ');
-		i = count_args(str);
-		stack_a->number = malloc(i * sizeof(int));
-		free_split(str, i);
+		while (i < (size - 1) && src[i] != '\0')
+		{
+			dest[i] = src[i];
+			i++;
+		}
+		dest[i] = '\0';
 	}
-	stack_a->size = 0;
-	stack_b->size = 0;
+	return (ft_strlen(src));
 }

@@ -1,34 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_stack.c                                     :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gantonio <gantonio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/17 21:30:07 by gantonio          #+#    #+#             */
-/*   Updated: 2021/11/17 21:53:20 by gantonio         ###   ########.fr       */
+/*   Created: 2021/05/24 15:41:43 by gantonio          #+#    #+#             */
+/*   Updated: 2021/05/27 21:38:02 by gantonio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	create_stack(t_stack *stack_a, t_stack *stack_b, int argc, char *argv[])
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	int		i;
-	int		c;
-	char	**str;
-	
-	i = 0;
-	i = 0;
-	if (argc != 2)
-		stack_a->number = malloc((argc - 1) * sizeof(int));
-	else
-	{
-		str = ft_split(argv[1], ' ');
-		i = count_args(str);
-		stack_a->number = malloc(i * sizeof(int));
-		free_split(str, i);
-	}
-	stack_a->size = 0;
-	stack_b->size = 0;
+	size_t		size;
+	char		*ptr;
+
+	if (!s1 || !set)
+		return (NULL);
+	while (*s1 && ft_strchr(set, *s1))
+		s1++;
+	size = ft_strlen(s1);
+	while (size && ft_strchr(set, s1[size]))
+		size--;
+	ptr = ft_substr((char *)s1, 0, size + 1);
+	return (ptr);
 }

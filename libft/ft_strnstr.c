@@ -1,34 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_stack.c                                     :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gantonio <gantonio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/17 21:30:07 by gantonio          #+#    #+#             */
-/*   Updated: 2021/11/17 21:53:20 by gantonio         ###   ########.fr       */
+/*   Created: 2021/05/18 22:59:06 by gantonio          #+#    #+#             */
+/*   Updated: 2021/05/19 17:02:04 by gantonio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	create_stack(t_stack *stack_a, t_stack *stack_b, int argc, char *argv[])
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	int		i;
-	int		c;
-	char	**str;
-	
-	i = 0;
-	i = 0;
-	if (argc != 2)
-		stack_a->number = malloc((argc - 1) * sizeof(int));
-	else
+	size_t	i;
+	size_t	c;
+
+	c = 0;
+	if (little[0] == '\0')
+		return ((char *)big);
+	while (big[c])
 	{
-		str = ft_split(argv[1], ' ');
-		i = count_args(str);
-		stack_a->number = malloc(i * sizeof(int));
-		free_split(str, i);
+		i = 0;
+		while (big[c + i] == little[i] && big[c + i] != '\0' && (c + i) < len)
+		{
+			if (little[i + 1] == '\0')
+				return ((char *)big + c);
+			i++;
+		}
+		c++;
 	}
-	stack_a->size = 0;
-	stack_b->size = 0;
+	return (NULL);
 }

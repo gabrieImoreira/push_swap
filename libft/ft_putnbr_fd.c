@@ -1,34 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_stack.c                                     :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gantonio <gantonio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/17 21:30:07 by gantonio          #+#    #+#             */
-/*   Updated: 2021/11/17 21:53:20 by gantonio         ###   ########.fr       */
+/*   Created: 2021/05/26 18:16:43 by gantonio          #+#    #+#             */
+/*   Updated: 2021/05/27 16:19:13 by gantonio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	create_stack(t_stack *stack_a, t_stack *stack_b, int argc, char *argv[])
+void	ft_putnbr_fd(int n, int fd)
 {
-	int		i;
-	int		c;
-	char	**str;
-	
-	i = 0;
-	i = 0;
-	if (argc != 2)
-		stack_a->number = malloc((argc - 1) * sizeof(int));
+	if (n == -2147483648)
+		ft_putstr_fd("-2147483648", fd);
 	else
 	{
-		str = ft_split(argv[1], ' ');
-		i = count_args(str);
-		stack_a->number = malloc(i * sizeof(int));
-		free_split(str, i);
+		if (n < 0)
+		{
+			ft_putchar_fd('-', fd);
+			n *= -1;
+		}
+		if (n > 9)
+			ft_putnbr_fd(n / 10, fd);
+		ft_putchar_fd((n % 10) + '0', fd);
 	}
-	stack_a->size = 0;
-	stack_b->size = 0;
 }

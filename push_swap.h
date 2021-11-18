@@ -3,6 +3,7 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+# include "../libft/libft.h"
 
 typedef	struct		s_stack
 {
@@ -10,5 +11,8 @@ typedef	struct		s_stack
 	int				size;
 }					t_stack;
 
-void	create_stacks(t_pile *stack_a, t_pile *stack_b, int argc, char **argv);
+int		count_args(char **str);
+void	create_stack(t_stack *stack_a, t_stack *stack_b, int argc, char **argv);
+void	free_split(char **str, int size);
+
 #endif

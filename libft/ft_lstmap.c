@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_stack.c                                     :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gantonio <gantonio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/17 21:30:07 by gantonio          #+#    #+#             */
-/*   Updated: 2021/11/17 21:53:20 by gantonio         ###   ########.fr       */
+/*   Created: 2021/06/03 17:41:58 by gantonio          #+#    #+#             */
+/*   Updated: 2021/06/05 01:56:06 by gantonio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	create_stack(t_stack *stack_a, t_stack *stack_b, int argc, char *argv[])
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	int		i;
-	int		c;
-	char	**str;
-	
-	i = 0;
-	i = 0;
-	if (argc != 2)
-		stack_a->number = malloc((argc - 1) * sizeof(int));
-	else
+	t_list	*new_lst;
+	t_list	*tmp;
+
+	new_lst = NULL;
+	while (lst)
 	{
-		str = ft_split(argv[1], ' ');
-		i = count_args(str);
-		stack_a->number = malloc(i * sizeof(int));
-		free_split(str, i);
+		tmp = ft_lstnew(f(lst->content));
+		if (!tmp)
+		{
+			ft_lstclear(&new_lst, del);
+			return (NULL);
+		}
+		ft_lstadd_back(&new_lst, tmp);
+		lst = lst->next;
 	}
-	stack_a->size = 0;
-	stack_b->size = 0;
+	return (new_lst);
 }

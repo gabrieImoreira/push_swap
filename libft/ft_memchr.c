@@ -1,34 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_stack.c                                     :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gantonio <gantonio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/17 21:30:07 by gantonio          #+#    #+#             */
-/*   Updated: 2021/11/17 21:53:20 by gantonio         ###   ########.fr       */
+/*   Created: 2021/05/17 23:37:40 by gantonio          #+#    #+#             */
+/*   Updated: 2021/05/18 17:52:17 by gantonio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	create_stack(t_stack *stack_a, t_stack *stack_b, int argc, char *argv[])
+void	*ft_memchr(const void *str, int c, size_t len)
 {
-	int		i;
-	int		c;
-	char	**str;
-	
+	size_t			i;
+	unsigned char	*ptr;
+
+	ptr = (unsigned char *)str;
 	i = 0;
-	i = 0;
-	if (argc != 2)
-		stack_a->number = malloc((argc - 1) * sizeof(int));
-	else
+	while (i < len)
 	{
-		str = ft_split(argv[1], ' ');
-		i = count_args(str);
-		stack_a->number = malloc(i * sizeof(int));
-		free_split(str, i);
+		if (ptr[i] == (unsigned char)c)
+			return (ptr + i);
+		i++;
 	}
-	stack_a->size = 0;
-	stack_b->size = 0;
+	return (NULL);
 }

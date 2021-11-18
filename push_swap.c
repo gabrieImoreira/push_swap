@@ -6,7 +6,7 @@
 /*   By: gantonio <gantonio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 18:37:31 by gantonio          #+#    #+#             */
-/*   Updated: 2021/11/17 21:31:52 by gantonio         ###   ########.fr       */
+/*   Updated: 2021/11/17 21:56:21 by gantonio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,9 @@ int main(int argc, char *argv[])
     
     if (argc < 2)
         exit (0);
-    create_stacks(&stack_a, &stack_b, argc, argv);
+    create_stack(&stack_a, &stack_b, argc, argv);
     
+    write(1, "ok\n", 3);
     // if (!(stack = malloc(sizeof(t_stack))))
 	// 	return (0);
     // stack->size_a = 1;

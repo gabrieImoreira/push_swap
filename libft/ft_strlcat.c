@@ -1,34 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_stack.c                                     :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gantonio <gantonio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/17 21:30:07 by gantonio          #+#    #+#             */
-/*   Updated: 2021/11/17 21:53:20 by gantonio         ###   ########.fr       */
+/*   Created: 2021/05/18 19:52:21 by gantonio          #+#    #+#             */
+/*   Updated: 2021/05/18 20:30:30 by gantonio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	create_stack(t_stack *stack_a, t_stack *stack_b, int argc, char *argv[])
+size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
-	int		i;
-	int		c;
-	char	**str;
-	
+	unsigned int	d;
+	unsigned int	j;
+	unsigned int	i;
+	unsigned int	s;
+
 	i = 0;
-	i = 0;
-	if (argc != 2)
-		stack_a->number = malloc((argc - 1) * sizeof(int));
-	else
+	s = ft_strlen(src);
+	d = ft_strlen(dest);
+	j = s + d;
+	if (size > d)
 	{
-		str = ft_split(argv[1], ' ');
-		i = count_args(str);
-		stack_a->number = malloc(i * sizeof(int));
-		free_split(str, i);
+		while (d + 1 < size && src[i] != '\0')
+		{
+			dest[d] = src[i];
+			i++;
+			d++;
+		}
+		dest[d] = '\0';
+		return (j);
 	}
-	stack_a->size = 0;
-	stack_b->size = 0;
+	if (size == d)
+		return (ft_strlen(src) + size);
+	return (ft_strlen(src) + size);
 }

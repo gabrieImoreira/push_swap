@@ -1,34 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   create_stack.c                                     :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gantonio <gantonio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/17 21:30:07 by gantonio          #+#    #+#             */
-/*   Updated: 2021/11/17 21:53:20 by gantonio         ###   ########.fr       */
+/*   Created: 2021/05/22 19:18:11 by gantonio          #+#    #+#             */
+/*   Updated: 2021/05/31 19:53:43 by gantonio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	create_stack(t_stack *stack_a, t_stack *stack_b, int argc, char *argv[])
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int		i;
-	int		c;
-	char	**str;
-	
+	char	*ptr;
+	size_t	i;
+	size_t	c;
+
 	i = 0;
-	i = 0;
-	if (argc != 2)
-		stack_a->number = malloc((argc - 1) * sizeof(int));
-	else
+	c = 0;
+	ptr = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	if (!ptr || !s1 || !s2)
+		return (NULL);
+	while (s1[i])
 	{
-		str = ft_split(argv[1], ' ');
-		i = count_args(str);
-		stack_a->number = malloc(i * sizeof(int));
-		free_split(str, i);
+		ptr[i] = s1[i];
+		i++;
 	}
-	stack_a->size = 0;
-	stack_b->size = 0;
+	while (s2[c])
+		ptr[i++] = s2[c++];
+	ptr[i] = '\0';
+	return (ptr);
 }
