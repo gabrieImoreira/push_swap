@@ -6,7 +6,7 @@
 /*   By: gantonio <gantonio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 21:30:07 by gantonio          #+#    #+#             */
-/*   Updated: 2021/11/18 22:35:20 by gantonio         ###   ########.fr       */
+/*   Updated: 2021/11/18 22:40:09 by gantonio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,16 +74,14 @@ static void	stack_validator(char c, t_stack *stack_a)
 	}
 }
 
-static int	insert_string_args(t_stack *stack_a, t_stack *stack_b, char *argv[])
+static void	insert_string_args(t_stack *stack_a, t_stack *stack_b, char *argv[])
 {
 	char	**str;
-	int		i;
 	int		j;
 
 	j = 0;
 	str = ft_split(argv[1], ' ');
-	i = count_args(str);
-	while (j < i)
+	while (j < count_args(str))
 	{
 		if (!check_args(str[j], stack_a))
 			return (free_aux_string(str, i), exit(0), 0);
@@ -98,8 +96,8 @@ static int	insert_string_args(t_stack *stack_a, t_stack *stack_b, char *argv[])
 		stack_validator(stack_a->number[j], stack_a);
 		j++;
 	}
-	free_split(str, i);
-	return (stack_b->number = malloc((stack_a->size) * sizeof(int)), 0);
+	free_split(str, count_args(str));
+	stack_b->number = malloc((stack_a->size) * sizeof(int));
 }
 
 void	insert_args_to_stack(t_stack *stack_a, t_stack *stack_b, int argc, char **argv)
