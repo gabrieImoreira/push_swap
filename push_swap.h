@@ -19,5 +19,6 @@ long long int	ft_atoi_ps(const char *nptr);
 void	create_stack(t_stack *stack_a, t_stack *stack_b, int argc, char **argv);
 void	free_split(char **str, int size);
 void	insert_args_to_stack(t_stack *stack_a, t_stack *stack_b, int argc, char **argv);
+void	swap(t_stack *stack, char c);
 
 #endif

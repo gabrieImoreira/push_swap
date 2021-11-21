@@ -6,7 +6,7 @@
 /*   By: gantonio <gantonio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 21:30:07 by gantonio          #+#    #+#             */
-/*   Updated: 2021/11/21 16:40:22 by gantonio         ###   ########.fr       */
+/*   Updated: 2021/11/21 17:16:56 by gantonio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static int	check_args(char *c, t_stack *stack_a)
 			|| (c[0] == '-' && size == 1))
 		{
 			free(stack_a->number);
-			return (write(STDERR_FILENO, ERR, 7), 0);
+			return (write(1, ERR, 7), 0);
 		}
 		i++;
 	}
@@ -69,7 +69,7 @@ static void	stack_validator(char c, t_stack *stack_a)
 	if (equal > 1)
 	{
 		free(stack_a->number);
-		write(STDERR_FILENO, ERR, 7);
+		write(1, ERR, 7);
 		exit(1);
 	}
 }
@@ -88,7 +88,7 @@ static int	insert_string_args(t_stack *stack_a, t_stack *stack_b, char *argv[])
 		if (ft_atoi_ps(str[j]) > MAX_INT
 			|| ft_atoi_ps(str[j]) < MIN_INT)
 		{
-			write(STDERR_FILENO, ERR, 7);
+			write(1, ERR, 7);
 			exit(0);
 		}
 		stack_a->number[j] = ft_atoi(str[j]);
@@ -114,7 +114,7 @@ void	insert_args_to_stack(t_stack *stack_a, t_stack *stack_b, int argc, char **a
 			if (ft_atoi_ps(argv[i]) > MAX_INT
 				|| ft_atoi_ps(argv[i]) < MIN_INT)
 			{
-				write(STDERR_FILENO, ERR, 7);
+				write(1, ERR, 7);
 				exit(0);
 			}
 			stack_a->number[i - 1] = ft_atoi_ps(argv[i]);
@@ -126,16 +126,4 @@ void	insert_args_to_stack(t_stack *stack_a, t_stack *stack_b, int argc, char **a
 	}
 	else
 		insert_string_args(stack_a, stack_b, argv);
-
-	int x;
-	printf("stack a, size: %d\n", stack_a->size);
-	for(x = 0; x < stack_a->size; x++)
-	{
-		printf("%d ", stack_a->number[x]);
-	}
-	printf("\nstack b, size: %d\n", stack_b->size);
-	for(x = 0; x < stack_b->size; x++)
-	{
-		printf("%d ", stack_b->number[x]);
-	}
 }
