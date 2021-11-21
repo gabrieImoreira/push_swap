@@ -5,23 +5,30 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: gantonio <gantonio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/21 17:32:59 by gantonio          #+#    #+#             */
-/*   Updated: 2021/11/21 18:02:58 by gantonio         ###   ########.fr       */
+/*   Created: 2021/11/21 17:02:16 by gantonio          #+#    #+#             */
+/*   Updated: 2021/11/21 17:05:47 by gantonio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int ft_push(t_stack *stack_a, t_stack *stack_b)
+static void	ft_swap(t_stack *stack)
 {
-	return (0);
+	int	tmp;
+
+	if (stack->size > 1)
+	{
+		tmp = stack->number[0];
+		stack->number[0] = stack->number[1];
+		stack->number[1] = tmp;
+	}
 }
 
-void	push(t_stack *stack_a, t_stack *stack_b, char c)
+void	swap(t_stack *stack, char c)
 {
-	ft_push(stack_a, stack_a);
+	ft_swap(stack);
 	if(c == 'a')
-		write(1, "pa\n", 3);
+		write(1, "sa\n", 3);
 	else if (c == 'b')
-		write(1, "pb\n", 3);
+		write(1, "sb\n", 3);
 }
