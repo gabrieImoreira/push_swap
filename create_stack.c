@@ -6,7 +6,7 @@
 /*   By: gantonio <gantonio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 21:30:07 by gantonio          #+#    #+#             */
-/*   Updated: 2021/11/18 22:40:09 by gantonio         ###   ########.fr       */
+/*   Updated: 2021/11/21 16:40:22 by gantonio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ static void	stack_validator(char c, t_stack *stack_a)
 	}
 }
 
-static void	insert_string_args(t_stack *stack_a, t_stack *stack_b, char *argv[])
+static int	insert_string_args(t_stack *stack_a, t_stack *stack_b, char *argv[])
 {
 	char	**str;
 	int		j;
@@ -84,7 +84,7 @@ static void	insert_string_args(t_stack *stack_a, t_stack *stack_b, char *argv[])
 	while (j < count_args(str))
 	{
 		if (!check_args(str[j], stack_a))
-			return (free_aux_string(str, i), exit(0), 0);
+			return (free_split(str, count_args(str)), exit(0), 0);
 		if (ft_atoi_ps(str[j]) > MAX_INT
 			|| ft_atoi_ps(str[j]) < MIN_INT)
 		{
@@ -97,7 +97,7 @@ static void	insert_string_args(t_stack *stack_a, t_stack *stack_b, char *argv[])
 		j++;
 	}
 	free_split(str, count_args(str));
-	stack_b->number = malloc((stack_a->size) * sizeof(int));
+	return (stack_b->number = malloc((stack_a->size) * sizeof(int)), 0);
 }
 
 void	insert_args_to_stack(t_stack *stack_a, t_stack *stack_b, int argc, char **argv)
@@ -126,4 +126,16 @@ void	insert_args_to_stack(t_stack *stack_a, t_stack *stack_b, int argc, char **a
 	}
 	else
 		insert_string_args(stack_a, stack_b, argv);
+
+	int x;
+	printf("stack a, size: %d\n", stack_a->size);
+	for(x = 0; x < stack_a->size; x++)
+	{
+		printf("%d ", stack_a->number[x]);
+	}
+	printf("\nstack b, size: %d\n", stack_b->size);
+	for(x = 0; x < stack_b->size; x++)
+	{
+		printf("%d ", stack_b->number[x]);
+	}
 }
