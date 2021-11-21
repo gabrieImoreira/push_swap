@@ -6,7 +6,7 @@
 /*   By: gantonio <gantonio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 22:04:47 by gantonio          #+#    #+#             */
-/*   Updated: 2021/11/21 17:30:41 by gantonio         ###   ########.fr       */
+/*   Updated: 2021/11/21 18:06:43 by gantonio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,7 @@ int	main(int argc, char *argv[])
 	{
 		printf("%d ", stack_b.number[x]);
 	}
+	
+	free(stack_a.number);
+	free(stack_b.number);
 }
