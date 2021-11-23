@@ -6,7 +6,7 @@
 /*   By: gantonio <gantonio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 22:04:47 by gantonio          #+#    #+#             */
-/*   Updated: 2021/11/21 18:06:43 by gantonio         ###   ########.fr       */
+/*   Updated: 2021/11/22 23:05:08 by gantonio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	main(int argc, char *argv[])
 	if (argc < 2)
 		exit (0);
 	create_stack(&stack_a, &stack_b, argc, argv);
-	insert_args_to_stack(&stack_a, &stack_b, argc, argv);
+	fill_stack(&stack_a, &stack_b, argc, argv);
 
 
 	int x;

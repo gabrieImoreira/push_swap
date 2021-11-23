@@ -6,7 +6,7 @@
 /*   By: gantonio <gantonio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 21:30:07 by gantonio          #+#    #+#             */
-/*   Updated: 2021/11/21 17:16:56 by gantonio         ###   ########.fr       */
+/*   Updated: 2021/11/22 23:05:01 by gantonio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ static int	insert_string_args(t_stack *stack_a, t_stack *stack_b, char *argv[])
 	return (stack_b->number = malloc((stack_a->size) * sizeof(int)), 0);
 }
 
-void	insert_args_to_stack(t_stack *stack_a, t_stack *stack_b, int argc, char **argv)
+void	fill_stack(t_stack *stack_a, t_stack *stack_b, int argc, char **argv)
 {
 	int	i;
 
