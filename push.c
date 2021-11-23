@@ -6,7 +6,7 @@
 /*   By: gantonio <gantonio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/21 17:32:59 by gantonio          #+#    #+#             */
-/*   Updated: 2021/11/22 22:57:12 by gantonio         ###   ########.fr       */
+/*   Updated: 2021/11/22 23:44:43 by gantonio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static int	ft_push(t_stack *stack_a, t_stack *stack_b)
 
 void	push(t_stack *stack_a, t_stack *stack_b, char c)
 {
-	ft_push(stack_a, stack_a);
+	ft_push(stack_a, stack_b);
 	if (c == 'a')
 		write(1, "pa\n", 3);
 	else if (c == 'b')
