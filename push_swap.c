@@ -6,7 +6,7 @@
 /*   By: gantonio <gantonio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 22:04:47 by gantonio          #+#    #+#             */
-/*   Updated: 2021/11/23 23:34:35 by gantonio         ###   ########.fr       */
+/*   Updated: 2021/11/24 00:07:39 by gantonio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	main(int argc, char *argv[])
 	}
 	printf("\nW/ PUSH: stack a, size: %d\n", stack_a.size);
 	push(&stack_a, &stack_b, 'b');
-	push(&stack_a, &stack_b, 'b');
+	//push(&stack_a, &stack_b, 'b');
 	for(x = 0; x < stack_a.size; x++)
 	{
 		printf("%d ", stack_a.number[x]);
@@ -46,7 +46,7 @@ int	main(int argc, char *argv[])
 		printf("%d ", stack_a.number[x]);
 	}
 	printf("\nW/ ROTATE: stack a\n");
-	rotate(&stack_a, 'a');
+	reverse_rotate(&stack_a, 'a');
 	for(x = 0; x < stack_a.size; x++)
 	{
 		printf("%d ", stack_a.number[x]);
