@@ -6,21 +6,21 @@
 /*   By: gantonio <gantonio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 22:17:44 by gantonio          #+#    #+#             */
-/*   Updated: 2021/11/23 22:49:21 by gantonio         ###   ########.fr       */
+/*   Updated: 2021/11/23 23:35:51 by gantonio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void rotate(t_stack *stack)
+static void ft_rotate(t_stack *stack)
 {
 	int	tmp;
 	int	i;
 
-	i = 0;
+	i = -1;
 	tmp = stack->number[0];
-	while (i < stack->size - 1)
-		stack->number[i] = stack->number[++i];
+	while (++i < stack->size - 1)
+		stack->number[i] = stack->number[i + 1];
 	stack->number[i] = tmp;
 }
 
