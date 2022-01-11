@@ -6,7 +6,7 @@
 /*   By: gantonio <gantonio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 21:46:45 by gantonio          #+#    #+#             */
-/*   Updated: 2021/11/22 23:01:02 by gantonio         ###   ########.fr       */
+/*   Updated: 2022/01/10 20:53:58 by gantonio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,46 @@ long long int	ft_atoi_ps(const char *nptr)
 	while (nptr[i] >= '0' && nptr[i] <= '9')
 		ret = (ret * 10) + (nptr[i++] - '0');
 	return (ret * sign);
+}
+
+int	return_lower_pos(t_stack *stack)
+{
+	int	num;
+	int	pos;
+	int	i;
+
+	i = 0;
+	pos = 0;
+	num = stack->number[i];
+	while (i < stack->size)
+	{
+		if (stack->number[i] < num)
+		{
+			num = stack->number[i];
+			pos = i;
+		}
+		i++;
+	}
+	return (pos);
+}
+
+int	return_higher_pos(t_stack *stack)
+{
+	int	num;
+	int	pos;
+	int	i;
+
+	i = 0;
+	pos = 0;
+	num = stack->number[i];
+	while (i < stack->size)
+	{
+		if (stack->number[i] > num)
+		{
+			num = stack->number[i];
+			pos = i;
+		}
+		i++;
+	}
+	return (pos);
 }
