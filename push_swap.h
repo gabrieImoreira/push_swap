@@ -23,6 +23,7 @@ void	free_split(char **str, int size);
 void	fill_stack(t_stack *stack_a, t_stack *stack_b, int argc, char **argv);
 void	reverse_rotate(t_stack *stack, char c);
 void	rotate(t_stack *stack, char c);
+void	small_sort(t_stack *stack, char c);
 void	smallest_sort(t_stack *stack, char c);
 void	swap(t_stack *stack, char c);
 void	push(t_stack *stack_a, t_stack *stack_b, char c);

@@ -6,7 +6,7 @@
 /*   By: gantonio <gantonio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 22:04:47 by gantonio          #+#    #+#             */
-/*   Updated: 2021/11/24 00:07:39 by gantonio         ###   ########.fr       */
+/*   Updated: 2022/01/13 20:58:08 by gantonio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,10 @@ int	main(int argc, char *argv[])
 		exit (0);
 	create_stack(&stack_a, &stack_b, argc, argv);
 	fill_stack(&stack_a, &stack_b, argc, argv);
+	if (stack_a.size == 0 || stack_a.size == 1)
+		return (free(stack_a.number), free(stack_b.number), exit(0), 0);
+	if (!is_sorted(&stack_a))
+		check_sort(&stack_a, &stack_b);
 
 	int x;
 	printf("stack a, size: %d\n", stack_a.size);
