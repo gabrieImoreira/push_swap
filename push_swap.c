@@ -6,7 +6,7 @@
 /*   By: gantonio <gantonio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 22:04:47 by gantonio          #+#    #+#             */
-/*   Updated: 2022/01/13 21:29:02 by gantonio         ###   ########.fr       */
+/*   Updated: 2022/01/13 22:04:53 by gantonio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ static	void verify_stack(t_stack *stack_a, t_stack *stack_b)
 		smallest_sort(stack_a, 'a');
 	if (stack_a->size == 3)
 		small_sort(stack_a, 'a');
+	if (stack_a->size == 5 || stack_a->size == 4)
+		medium_sort(stack_a, stack_b);
 }
 
 int	main(int argc, char *argv[])
