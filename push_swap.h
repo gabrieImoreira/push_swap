@@ -19,6 +19,7 @@ int		is_sorted(t_stack *stack);
 int		return_higher_pos(t_stack *stack);
 int		return_lower_pos(t_stack *stack);
 long long int	ft_atoi_ps(const char *nptr);
+void	big_sort(t_stack *stack_a, t_stack *stack_b);
 void	create_stack(t_stack *stack_a, t_stack *stack_b, int argc, char **argv);
 void	free_split(char **str, int size);
 void	fill_stack(t_stack *stack_a, t_stack *stack_b, int argc, char **argv);
