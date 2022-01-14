@@ -6,11 +6,21 @@
 /*   By: gantonio <gantonio@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 22:04:47 by gantonio          #+#    #+#             */
-/*   Updated: 2022/01/13 20:58:08 by gantonio         ###   ########.fr       */
+/*   Updated: 2022/01/13 21:18:03 by gantonio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static	void verify_stack(t_stack *stack_a, t_stack *stack_b)
+{
+	if (stack_a->size < 1)
+		write(1, ERR, 7);
+	if (stack_a->size == 2)
+		smallest_sort(stack_a, 'a');
+	if (stack_a->size == 3)
+		small_sort(stack_a, 'a');
+}
 
 int	main(int argc, char *argv[])
 {
@@ -24,40 +34,9 @@ int	main(int argc, char *argv[])
 	if (stack_a.size == 0 || stack_a.size == 1)
 		return (free(stack_a.number), free(stack_b.number), exit(0), 0);
 	if (!is_sorted(&stack_a))
-		check_sort(&stack_a, &stack_b);
-
-	int x;
-	printf("stack a, size: %d\n", stack_a.size);
-	for(x = 0; x < stack_a.size; x++)
-	{
-		printf("%d ", stack_a.number[x]);
-	}
-	printf("\nW/ PUSH: stack a, size: %d\n", stack_a.size);
-	push(&stack_a, &stack_b, 'b');
-	//push(&stack_a, &stack_b, 'b');
-	for(x = 0; x < stack_a.size; x++)
-	{
-		printf("%d ", stack_a.number[x]);
-	}
-	printf("\n\nstack b, size: %d\n", stack_b.size);
-	for(x = 0; x < stack_b.size; x++)
-	{
-		printf("%d ", stack_b.number[x]);
-	}
-	printf("\nBEFORE ROTATE: stack a\n");
-	for(x = 0; x < stack_a.size; x++)
-	{
-		printf("%d ", stack_a.number[x]);
-	}
-	printf("\nW/ ROTATE: stack a\n");
-	reverse_rotate(&stack_a, 'a');
-	for(x = 0; x < stack_a.size; x++)
-	{
-		printf("%d ", stack_a.number[x]);
-	}
-	printf("\n\n\n");
-
-	
+		verify_stack(&stack_a, &stack_b);
 	free(stack_a.number);
 	free(stack_b.number);
+	return (0);
 }
+

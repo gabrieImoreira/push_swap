@@ -15,6 +15,7 @@ typedef	struct		s_stack
 }					t_stack;
 
 int		count_args(char **str);
+int	is_sorted(t_stack *stack);
 int		return_higher_pos(t_stack *stack);
 int		return_lower_pos(t_stack *stack);
 long long int	ft_atoi_ps(const char *nptr);
